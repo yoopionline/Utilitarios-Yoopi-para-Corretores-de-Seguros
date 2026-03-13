@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoopi | Ferramentas para Corretores</title>
+    <style>
+        :root { --verde: #39FF14; --preto: #000000; --cinza: #1a1a1a; }
+        body { background-color: var(--preto); color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .card { background: var(--cinza); border: 1px solid var(--verde); padding: 20px; border-radius: 12px; width: 100%; max-width: 400px; margin-bottom: 20px; box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); }
+        h1, h2 { color: var(--verde); text-align: center; }
+        label { display: block; margin: 10px 0 5px; font-size: 14px; }
+        input, select { width: 100%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; box-sizing: border-box; }
+        button { width: 100%; background: var(--verde); color: black; border: none; padding: 12px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #32cd32; }
+        #resultado { margin-top: 15px; font-weight: bold; text-align: center; color: var(--verde); font-size: 1.2em; }
+        .logo { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="logo">YOOPI<span style="color:var(--verde)">.</span></div>
+
+    <div class="card">
+        <h2>📊 Calculadora de Perda</h2>
+        <label>Quantas renovações você tem/mês?</label>
+        <input type="number" id="qtd" placeholder="Ex: 50">
+        <label>Comissão média por seguro (R$)</label>
+        <input type="number" id="valor" placeholder="Ex: 300">
+        <p style="font-size: 12px; color: #888;">*Considerando 15% de perda por falta de automação.</p>
+        <button onclick="calcular()">Calcular Prejuízo Anual</button>
+        <div id="resultado"></div>
+    </div>
+
+    <div class="card">
+        <h2>🛡️ Aviso de Renovação</h2>
+        <input type="text" id="cliente" placeholder="Nome do Cliente">
+        <input type="text" id="seguro" placeholder="Tipo de Seguro (Ex: Auto)">
+        <input type="text" id="fone" placeholder="WhatsApp (DDD+Número)">
+        <button onclick="gerarZap()">Gerar e Enviar no WhatsApp</button>
+    </div>
+
+    <script>
+        function calcular() {
+            const qtd = document.getElementById('qtd').value;
+            const valor = document.getElementById('valor').value;
+            const perdaAnual = (qtd * 0.15) * valor * 12;
+            document.getElementById('resultado').innerHTML = "Você deixa de ganhar:<br>R$ " + perdaAnual.toLocaleString('pt-BR') + " /ano";
+        }
+
+        function gerarZap() {
+            const nome = document.getElementById('cliente').value;
+            const seguro = document.getElementById('seguro').value;
+            const fone = document.getElementById('fone').value.replace(/\D/g, '');
+            const msg = `Olá ${nome}! Aqui é da corretora. Passando para avisar que seu seguro ${seguro} está próximo do vencimento. Vamos garantir sua proteção por mais um ano?`;
+            window.open(`https://wa.me/55${fone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
