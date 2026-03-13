@@ -13,4 +13,4 @@ Bem-vindo ao laboratório da Yoopi! 🛡️  Aqui criamos ferramentas simples pa
 Especializada na **Estrutura Digital de Corretoras de Seguros**, unimos presença profissional, automação de relacionamento e comunicação financeira desde 2017.
 
 ---
-[Acesse nosso site oficial](https://yoopi.com.br) | [Fale conosco no WhatsApp](https://wa.me/5511963234336)
+[Acesse nosso site oficial](https://yoopi..online) | [Fale conosco no WhatsApp](https://wa.me/5511963234336?text=Ol%C3%A1%21+Vim+pelo+GitHub+da+Yoopi+e+gostaria+de+saber+mais+sobre+a+Estrutura+Digital+para+minha+corretora.)
